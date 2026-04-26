@@ -65,6 +65,9 @@ For encryption, the hook passes `--encrypt-vault-id=default` unless overridden. 
 `ansible-vault encrypt_string` failures when the same password source is visible both via
 CLI and `ansible.cfg`.
 
+The hook depends on `ansible-core`, so `ansible-vault` is installed inside the pre-commit
+hook environment and does not need to exist globally on the runner.
+
 ## Git ignore
 
 Add this to your repository:

@@ -1,0 +1,7 @@
+- id: ansible-vault-encrypt-string
+  name: ansible-vault encrypt string
+  description: Encrypt all values in *_vault.yaml files and export plaintext mirrors.
+  entry: ansible-vault-encrypt-string
+  language: python
+  files: _vault\.ya?ml$
+  require_serial: true

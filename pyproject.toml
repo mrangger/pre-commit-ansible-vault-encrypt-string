@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pre-commit-ansible-vault-encrypt-string"
+version = "0.1.0"
+description = "Pre-commit hook that encrypts all values in *_vault.yaml files via ansible-vault encrypt_string and exports plaintext mirrors."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Mathias Rangger"}
+]
+dependencies = [
+  "ruamel.yaml>=0.18,<0.19",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+ansible-vault-encrypt-string = "pre_commit_ansible_vault_encrypt_string.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

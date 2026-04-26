@@ -43,6 +43,7 @@ Optional arguments:
         args:
           - --vault-password-file=~/.vault_pass
           - --ansible-cfg=ansible.cfg
+          - --encrypt-vault-id=default
           - --plain-suffix=.plain
 ```
 
@@ -59,6 +60,10 @@ When reading `ansible.cfg`, the hook uses:
 3. `./ansible.cfg`
 
 The hook reads `vault_password_file` from `[defaults]` and currently supports file paths only.
+
+For encryption, the hook passes `--encrypt-vault-id=default` unless overridden. This avoids
+`ansible-vault encrypt_string` failures when the same password source is visible both via
+CLI and `ansible.cfg`.
 
 ## Git ignore
 
